@@ -1,0 +1,15 @@
+package base 
+
+templ Base(title string) {
+	<html lang="en">
+		<head>
+			<title>{ title }</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<link rel="stylesheet" href="/static/style/output.css"/>
+			<title>Login</title>
+		</head>
+		<body>
+			{ children... }
+		</body>
+	</html>
+}
