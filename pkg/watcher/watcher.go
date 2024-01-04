@@ -14,11 +14,11 @@ import (
 )
 
 type WatchConfig struct {
-	Command     []string
-	IncludeDirs []string
-	ExcludeDirs []string
-	Exclude     []string
-	Include     []string
+	Command     []string `json:"command"`
+	IncludeDirs []string `json:"includeDirs"`
+	ExcludeDirs []string `json:"excludeDirs"`
+	Exclude     []string `json:"exclude"`
+	Include     []string `json:"include"`
 }
 
 func (c WatchConfig) Run() {

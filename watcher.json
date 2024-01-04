@@ -1,0 +1,31 @@
+{
+  "command": [
+    "npx tailwindcss -i ./internal/style/style.css -o ./internal/static/style/output.css",
+    "templ generate",
+    "go run ./cmd/app/main.go"
+  ],
+  "includeDirs": [
+    "."
+  ],
+  "excludeDirs": [
+    "internal/static",
+    "node_modules",
+    ".git",
+    ".idea",
+    ".vscode",
+    "vendor",
+    "cmd/watcher"
+  ],
+  "exclude": [
+    "*_templ.go",
+    "*_test.go",
+    "*.git"
+  ],
+  "include": [
+    "*.go",
+    "*.html",
+    "*.css",
+    "*.js",
+    "*.templ"
+  ]
+}
