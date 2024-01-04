@@ -1,11 +1,13 @@
 package watcher // import "github.com/muhhae/go-templ-htmx/pkg/watcher"
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"os/exec"
 	"path"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"time"
 
@@ -95,8 +97,12 @@ func (c WatchConfig) Run() {
 var cmd *exec.Cmd
 
 func command(l []string) {
-	if cmd != nil {
-		cmd.Process.Kill()
+	if cmd != nil && cmd.Process != nil {
+		taskKill := exec.Command("TASKKILL", "/T", "/F", "/PID", strconv.Itoa(cmd.Process.Pid))
+		err := taskKill.Run()
+		if err != nil {
+			fmt.Println("Failed to kill process:", err)
+		}
 		cmd.Wait()
 	}
 
