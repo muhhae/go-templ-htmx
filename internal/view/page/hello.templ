@@ -1,16 +1,16 @@
 package page
 
+import (
+	"github.com/muhhae/go-templ-htmx/internal/view/base"
+)
+
 templ Hello(Name string) {
-	<!DOCTYPE html>
-	<html>
-		<head>
-			<title>My Web Page</title>
-			<meta charset="utf-8"/>
-			<link rel="stylesheet" href="static/style/output.css"/>
-		</head>
+	@base.Base("Title") {
 		<body class="bg-white">
 			<div class="bg-blue-400">Hello, { Name }!</div>
+			<div>
+				{ MyName }
+			</div>
 		</body>
-		halo { Name }
-	</html>
+	}
 }
